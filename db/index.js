@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-let MONGO_URI = 'mongo://127.0.0.1:27017/recipesDatabase'
+let MONGO_URI = 'mongodb://127.0.0.1:27017/recipesDatabase'
 
 mongoose
   .connect(MONGO_URI)
