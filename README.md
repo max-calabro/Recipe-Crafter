@@ -28,7 +28,9 @@
 ## **_Getting Started_**
 
 [Deployed_Site] |
-[Trello](https://trello.com/b/NDdOQKbE/recipe-crafter)
+[Trello](https://trello.com/b/NDdOQKbE/recipe-crafter) |
+[ERD](images/Recipe-Crafter-ERD.jpg) |
+[Components_Hierarchy_Diagram](images/Recipe-Crafter-Components-Hierarchy-Diagram.jpg)
 
 ---
 
