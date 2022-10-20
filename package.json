@@ -1,0 +1,23 @@
+{
+  "name": "recipe-crafter",
+  "version": "1.0.0",
+  "description": "## Date: 19/10/2022",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/max-calabro/Recipe-Crafter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/max-calabro/Recipe-Crafter/issues"
+  },
+  "homepage": "https://github.com/max-calabro/Recipe-Crafter#readme",
+  "dependencies": {
+    "mongoose": "^6.6.5"
+  }
+}
