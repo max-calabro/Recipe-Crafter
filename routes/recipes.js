@@ -2,7 +2,7 @@ const { Router } = require('express')
 const controllers = require('../controllers/recipes')
 const router = Router()
 
-router.get('/', controllers.allRecipes)
+router.get('/', controllers.getAllRecipes)
 
 router.post('/new', controllers.createRecipe)
 

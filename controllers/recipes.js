@@ -10,7 +10,7 @@ const createRecipe = async (req, res) => {
   }
 }
 
-const allRecipes = async (req, res) => {
+const getAllRecipes = async (req, res) => {
   try {
     const all = await Recipe.find({})
     //return res.send(`http.cat/${res.status(200)}`)
@@ -22,5 +22,5 @@ const allRecipes = async (req, res) => {
 
 module.exports = {
   createRecipe,
-  allRecipes
+  getAllRecipes
 }

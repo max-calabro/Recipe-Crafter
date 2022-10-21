@@ -1,5 +1,6 @@
 const express = require('express')
 const recipeRoutes = require('./routes/recipes')
+const ingredientRoutes = require('./routes/ingredients')
 const db = require('./db')
 //require() imports and middleware above ^
 
@@ -11,6 +12,7 @@ app.use(express.json())
 // app.use() middleware above ^
 
 app.use('/recipes', recipeRoutes)
+app.use('/ingredients', ingredientRoutes)
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 
