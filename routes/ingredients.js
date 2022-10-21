@@ -8,6 +8,6 @@ router.post('/new', controllers.createIngredient)
 
 router.get('/:id', controllers.getIngredientById)
 
-//router.put('/edit', controllers.editIngredient)
+router.put('/edit/:id', controllers.editIngredient)
 
 module.exports = router

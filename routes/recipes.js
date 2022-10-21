@@ -8,4 +8,6 @@ router.post('/new', controllers.createRecipe)
 
 router.get('/:id', controllers.getRecipeById)
 
+router.put('/edit/:id', controllers.editRecipe)
+
 module.exports = router
