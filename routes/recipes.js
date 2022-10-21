@@ -10,4 +10,6 @@ router.get('/:id', controllers.getRecipeById)
 
 router.put('/edit/:id', controllers.editRecipe)
 
+router.delete('/delete/:id', controllers.deleteRecipe)
+
 module.exports = router
