@@ -1,5 +1,5 @@
 {
-  "name": "recipe_crafter_frontend",
+  "name": "recipe-crafter-frontend",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
