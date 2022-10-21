@@ -25,3 +25,18 @@ code {
   padding: 1em;
   min-height: 2em;
 }
+
+.recipes_ingredients {
+  display: flex;
+  flex-direction: column;
+
+  margin: 5px;
+}
+
+.recipe_links {
+  height: 25px;
+}
+
+.ingredient_links {
+  height: 25px;
+}

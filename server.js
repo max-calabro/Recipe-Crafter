@@ -2,6 +2,8 @@ const express = require('express')
 const recipeRoutes = require('./routes/recipes')
 const ingredientRoutes = require('./routes/ingredients')
 const db = require('./db')
+const cors = require('cors')
+const logger = require('morgan')
 //require() imports and middleware above ^
 
 const PORT = process.env.PORT || 3001
@@ -9,6 +11,8 @@ const PORT = process.env.PORT || 3001
 const app = express()
 
 app.use(express.json())
+app.use(cors())
+app.use(logger('dev'))
 // app.use() middleware above ^
 
 app.use('/recipes', recipeRoutes)
