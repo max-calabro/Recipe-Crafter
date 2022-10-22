@@ -40,3 +40,7 @@ code {
 .ingredient_links {
   height: 25px;
 }
+
+.recipe_grid {
+  display: grid;
+}
