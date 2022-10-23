@@ -1,5 +1,6 @@
 // import { Link } from "react-router-dom"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 import axios from "axios"
 import { Route, Routes } from "react-router-dom"
 import RecipeNav from "../components/RecipeNav"
@@ -7,11 +8,17 @@ import NewRecipe from "./NewRecipe"
 
 
 const Recipes = (props) => {
+  let navigate = useNavigate()
+
+  const showRecipe = (recipe) => {
+    props.selectRecipe(recipe)
+    navigate(`${recipe._id}`)
+  }
 
   useEffect(() => {
     const getRecipes = async () => {
       const response = await axios.get('http://localhost:3001/recipes')
-      //console.log(response.data)
+      console.log(response.data)
       props.setRecipes(response.data)
     }
     getRecipes()
@@ -29,7 +36,7 @@ const Recipes = (props) => {
         props.recipes.map((recipe) => (
           <div className="recipe-card"  key={recipe._id}>
             <h3>{recipe.name}</h3>
-            <button onClick={() => props.selectRecipe(recipe._id)}>View Recipe </button>
+            <button onClick={() => showRecipe(recipe)}>View Recipe </button>
           </div>
         ))
       }

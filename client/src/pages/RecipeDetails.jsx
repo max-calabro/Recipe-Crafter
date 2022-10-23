@@ -1,21 +1,29 @@
-import { useEffect, useState } from 'react'
-import axios from 'axios'
+import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 const RecipeDetails = (props) => {
+  let navigate = useNavigate()
 
-  //const [recipe, setRecipe] = useState('')
-  //
-  // useEffect(() => {
-  //   const getRecipeDetails = async () => {
-  //     console.log('hi  ' + props.selectedrecipe._id)
-  //     let selectedRecipe = await axios.get(`http://localhost:3001/recipes/${props.selectedrecipe._id}`)
-  //     setRecipe(selectedRecipe)
-  //   }
-  //   getRecipeDetails()
-  // }, [])
+  const editRecipe = () => {
+    navigate(`form`)
+  }
+
+  //console.log(props)
 
   return (
-    <div>hi</div>
+    <div>
+      <Link to="/recipes">Back</Link>
+      <br></br>
+      {props.selectedRecipe.name}
+      <br></br>
+      {props.selectedRecipe.description}
+      <br></br>
+      {props.selectedRecipe.ingredients}
+      <br></br>
+      {props.selectedRecipe.instructions}
+      <br></br>
+      <button onClick={() => editRecipe()}>Edit Recipe </button>
+    </div>
   )
 }
 
