@@ -17,10 +17,18 @@ const EditRecipe = (props) => {
     let res = await axios.put(`http://localhost:3001/recipes/${props.selectedRecipe._id}/edit`, formState)
     console.log(res.data)
     setFormState(formState)
+    //what should the user see when the recipe is edited
+
   }
 
   const handleChange = (event) => {
     setFormState({ ...formState, [event.target.id]: event.target.value })
+  }
+
+  const deleteRecipe = async () => {
+    let toDelete = await axios.delete(`http://localhost:3001/recipes/${props.selectedRecipe._id}/delete`)
+    console.log("deleted")
+    //what should the user see when the recipe is deleted
   }
 
   return (
@@ -67,6 +75,7 @@ const EditRecipe = (props) => {
 
         <button type="submit">Submit</button>
       </form>
+      <button onClick={() => deleteRecipe()}>Delete Recipe</button>
       
 
     </div>
