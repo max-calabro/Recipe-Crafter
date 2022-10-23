@@ -4,7 +4,7 @@ const router = Router()
 
 router.get('/', controllers.getAllRecipes)
 
-router.post('/new', controllers.createRecipe)
+router.post('/addNew', controllers.createRecipe)
 
 router.get('/:id', controllers.getRecipeById)
 

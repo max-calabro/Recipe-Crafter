@@ -1,10 +1,7 @@
-// import { Link } from "react-router-dom"
 import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
-import { Route, Routes } from "react-router-dom"
 import RecipeNav from "../components/RecipeNav"
-import NewRecipe from "./NewRecipe"
 
 
 const Recipes = (props) => {
@@ -28,9 +25,6 @@ const Recipes = (props) => {
     <div className="recipes_ingredients" >
       <RecipeNav />
       <h2>Recipes</h2>
-      <Routes>
-        <Route path="/form" element={<NewRecipe />} />
-      </Routes>
       <div className="recipe_grid">
       {
         props.recipes.map((recipe) => (

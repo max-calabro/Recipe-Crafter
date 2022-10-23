@@ -29,6 +29,7 @@ const EditRecipe = (props) => {
     let toDelete = await axios.delete(`http://localhost:3001/recipes/${props.selectedRecipe._id}/delete`)
     console.log("deleted")
     //what should the user see when the recipe is deleted
+    //screen with two buttons: "new Recipe" "All recipes" ?
   }
 
   return (

@@ -7,6 +7,7 @@ import Ingredients from './pages/Ingredients'
 import RecipeDetails from './pages/RecipeDetails'
 import { useState } from 'react'
 import EditRecipe from './pages/EditRecipe'
+import NewRecipe from './pages/NewRecipe'
 
 const App = () => {
   const [recipes, setRecipes] = useState([])
@@ -42,6 +43,7 @@ const App = () => {
           path="/recipes/:id/edit"
           element={<EditRecipe selectedRecipe={selectedRecipe} />}
         />
+        <Route path="/createRecipe" element={<NewRecipe />} />
         <Route path="/ingredients" element={<Ingredients />} />
       </Routes>
     </div>

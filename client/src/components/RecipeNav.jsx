@@ -4,7 +4,7 @@ const RecipeNav = () => {
   return (
     <div className="RecipeNav">
       <h2>RecipeNav</h2>
-      <Link to="/new"> New Recipe </Link>
+      <Link to="/createRecipe">New Recipe</Link>
     </div>
   )
 }
