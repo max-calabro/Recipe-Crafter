@@ -5,7 +5,7 @@ const RecipeDetails = (props) => {
   let navigate = useNavigate()
 
   const editRecipe = () => {
-    navigate(`form`)
+    navigate(`edit`)
   }
 
   //console.log(props)
