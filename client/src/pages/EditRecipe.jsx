@@ -14,9 +14,9 @@ const EditRecipe = (props) => {
   const handleSubmit = async (event) => {
     console.log(formState)
     event.preventDefault()
-    let res = await axios.put('http://localhost:3001/recipes/:id/edit', formState)
+    let res = await axios.put(`http://localhost:3001/recipes/${props.selectedRecipe._id}/edit`, formState)
     console.log(res.data)
-    setFormState(initialState)
+    setFormState(formState)
   }
 
   const handleChange = (event) => {
