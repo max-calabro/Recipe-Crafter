@@ -1,6 +1,7 @@
 import './App.css'
 import Navbar from './pages/Navbar'
 import Home from './pages/Home'
+
 import { Routes, Route } from 'react-router-dom'
 import { useState } from 'react'
 
@@ -36,7 +37,6 @@ const App = () => {
   return (
     <div>
       <Navbar />
-      <h1>Recipe Crafter</h1>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route

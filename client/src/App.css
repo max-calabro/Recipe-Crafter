@@ -1,3 +1,12 @@
+@font-face {
+  font-family: Abril Fatface;
+  src: url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap')
+} 
+
+html {
+  height: 100%;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,11 +14,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+
 }
 
 h1 {
-  display: flex;
-  justify-content: space-around;
+  font-family: Abril Fatface;
+  font-size: 130px;
+  color: bisque;
 }
 
 code {
@@ -24,6 +36,17 @@ code {
 
   padding: 1em;
   min-height: 2em;
+  background-image: linear-gradient(to right, ghostwhite 2%, bisque 75%, firebrick)
+  
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+
+  background-image: url(../public/assets/images/pasta_prep_background.jpg);
 }
 
 .recipes_ingredients {
@@ -43,4 +66,21 @@ code {
 
 .recipe_grid {
   display: grid;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%
+}
+
+.ingredients {
+  display: flex;
+  justify-content: center;
+}
+
+.recipe_ingredients {
+  display: flex;
 }

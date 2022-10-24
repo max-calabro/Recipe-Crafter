@@ -12,4 +12,6 @@ router.put('/:id/edit', controllers.editRecipe)
 
 router.delete('/:id/delete', controllers.deleteRecipe)
 
+router.get('/:name/find', controllers.findRecipe)
+
 module.exports = router

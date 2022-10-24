@@ -11,18 +11,21 @@ const RecipeDetails = (props) => {
   //console.log(props)
 
   return (
-    <div>
+    <div class="ingredients">
       <Link to="/recipes">Back</Link>
-      <br></br>
-      {props.selectedRecipe.name}
-      <br></br>
-      {props.selectedRecipe.description}
-      <br></br>
-      {props.selectedRecipe.ingredients}
-      <br></br>
-      {props.selectedRecipe.instructions}
-      <br></br>
-      <button onClick={() => editRecipe()}>Edit Recipe </button>
+      <div class="details">
+        <h1>{props.selectedRecipe.name}</h1>
+        <p className="recipe_description">{props.selectedRecipe.description}</p>
+        <div className="recipe_ingredients">
+          Ingredients:
+          <br></br>
+          {props.selectedRecipe.ingredients}</div>
+        <p 
+        className="recipe_instructions">
+          How To Cook:
+          <br></br>{props.selectedRecipe.instructions}</p>
+        <button onClick={() => editRecipe()}>Edit Recipe </button>
+      </div>
     </div>
   )
 }
