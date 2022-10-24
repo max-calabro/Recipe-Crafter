@@ -22,15 +22,15 @@ const Recipes = (props) => {
   }, [])
 
   return (
-    <div className="recipes_ingredients" >
+    <div className="recipes" >
+      <h1>Recipes</h1>
       <RecipeNav />
-      <h2>Recipes</h2>
       <div className="recipe_grid">
       {
         props.recipes.map((recipe) => (
-          <div className="recipe-card"  key={recipe._id}>
-            <h3>{recipe.name}</h3>
-            <button onClick={() => showRecipe(recipe)}>View Recipe </button>
+          <div className="recipe_card"  key={recipe._id}>
+            <h2>{recipe.name}</h2>
+            <button className="view_button" onClick={() => showRecipe(recipe)}>View Recipe </button>
           </div>
         ))
       }
