@@ -4,12 +4,12 @@ const router = Router()
 
 router.get('/', controllers.getAllIngredients)
 
-router.post('/new', controllers.createIngredient)
+router.post('/addNew', controllers.createIngredient)
 
 router.get('/:id', controllers.getIngredientById)
 
-router.put('/edit/:id', controllers.editIngredient)
+router.put('/:id/edit', controllers.editIngredient)
 
-router.delete('/delete/:id', controllers.deleteIngredient)
+router.delete('/:id/delete', controllers.deleteIngredient)
 
 module.exports = router

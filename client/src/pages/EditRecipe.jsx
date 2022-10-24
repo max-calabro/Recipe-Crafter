@@ -12,10 +12,10 @@ const EditRecipe = (props) => {
   const [formState, setFormState] = useState(initialState)
 
   const handleSubmit = async (event) => {
-    console.log(formState)
+    //console.log(formState)
     event.preventDefault()
     let res = await axios.put(`http://localhost:3001/recipes/${props.selectedRecipe._id}/edit`, formState)
-    console.log(res.data)
+    //console.log(res.data)
     setFormState(formState)
     //what should the user see when the recipe is edited
 

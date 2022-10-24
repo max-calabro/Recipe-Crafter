@@ -12,10 +12,10 @@ const NewRecipe = (props) => {
   const [formState, setFormState] = useState(initialState)
 
   const handleSubmit = async (event) => {
-    console.log(formState)
+    //console.log(formState)
     event.preventDefault()
     let res = await axios.post(`http://localhost:3001/recipes/addNew`, formState)
-    console.log(res.data)
+    //console.log(res.data)
     setFormState(formState)
     //what should the user see when the recipe is edited
 

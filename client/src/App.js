@@ -2,20 +2,34 @@ import './App.css'
 import Navbar from './pages/Navbar'
 import Home from './pages/Home'
 import { Routes, Route } from 'react-router-dom'
+import { useState } from 'react'
+
 import Recipes from './pages/Recipes'
 import Ingredients from './pages/Ingredients'
+
 import RecipeDetails from './pages/RecipeDetails'
-import { useState } from 'react'
+import IngredientDetails from './pages/IngredientDetails'
+
 import EditRecipe from './pages/EditRecipe'
+import EditIngredient from './pages/EditIngredient'
+
 import NewRecipe from './pages/NewRecipe'
 
 const App = () => {
   const [recipes, setRecipes] = useState([])
   const [selectedRecipe, setSelectedRecipe] = useState(null)
 
+  const [ingredients, setIngredients] = useState([])
+  const [selectedIngredient, setSelectedIngredient] = useState(null)
+
   const selectRecipe = (recipe) => {
-    console.log(recipe)
+    //console.log(recipe)
     setSelectedRecipe(recipe)
+  }
+
+  const selectIngredient = (ingredient) => {
+    //console.log(recipe)
+    setSelectedIngredient(ingredient)
   }
 
   return (
@@ -44,7 +58,27 @@ const App = () => {
           element={<EditRecipe selectedRecipe={selectedRecipe} />}
         />
         <Route path="/createRecipe" element={<NewRecipe />} />
-        <Route path="/ingredients" element={<Ingredients />} />
+        <Route
+          path="/ingredients/*"
+          element={
+            <Ingredients
+              ingredients={ingredients}
+              setIngredients={setIngredients}
+              selectIngredient={selectIngredient}
+              selectedIngredient={selectedIngredient}
+            />
+          }
+        />
+        <Route
+          path="/ingredients/:id/*"
+          element={
+            <IngredientDetails selectedIngredient={selectedIngredient} />
+          }
+        />
+        <Route
+          path="/ingredients/:id/edit"
+          element={<EditIngredient selectedIngredient={selectedIngredient} />}
+        />
       </Routes>
     </div>
   )

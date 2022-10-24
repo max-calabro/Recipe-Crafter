@@ -1,29 +1,40 @@
-import { Link } from "react-router-dom"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 import axios from "axios"
-import IngredientList from "../components/IngredientList"
+import IngredientNav from "../components/IngredientNav"
 
-const Ingredients = () => {
+const Ingredients = (props) => {
+  let navigate = useNavigate()
 
-  const [ingredients, setIngredients] = useState([])
 
+  const showIngredient = (ingredient) => {
+    //console.log(ingredient)
+    props.selectIngredient(ingredient)
+    navigate(`${ingredient._id}`)
+  }
 
   useEffect(() => {
     const getIngredients = async () => {
       const response = await axios.get('http://localhost:3001/ingredients')
-      //console.log(response.data)
-      setIngredients(response.data)
+      console.log(response.data)
+      props.setIngredients(response.data)
     }
     getIngredients()
   }, [])
 
   return (
     <div className="recipes_ingredients">
+      <IngredientNav />
       <h2>Ingredients</h2>
-      <Link className="ingredient_links" to="/ingredients/new">New Ingredient</Link>
-      <Link className="ingredient_links" to="/ingredients/edit">Edit Ingredient</Link>
-      <div>
-        <IngredientList ingredients={ingredients} />
+      <div className="recipe_grid">
+      {
+        props.ingredients.map((Ingredient) => (
+          <div className="Ingredient-card"  key={Ingredient._id}>
+            <h3>{Ingredient.name}</h3>
+            <button onClick={() => showIngredient(Ingredient)}>View Ingredient </button>
+          </div>
+        ))
+      }
       </div>
     </div>
   )

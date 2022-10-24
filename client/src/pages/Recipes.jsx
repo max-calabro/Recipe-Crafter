@@ -15,7 +15,7 @@ const Recipes = (props) => {
   useEffect(() => {
     const getRecipes = async () => {
       const response = await axios.get('http://localhost:3001/recipes')
-      console.log(response.data)
+      //console.log(response.data)
       props.setRecipes(response.data)
     }
     getRecipes()
