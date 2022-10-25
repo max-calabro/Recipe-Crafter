@@ -48,8 +48,14 @@ code {
 
   padding: 1em;
   min-height: 2em;
-  background-image: linear-gradient(to right, ghostwhite 2%, bisque 75%, rgba(178, 34, 34, 0.643))
-  
+}
+
+.navbar_items {
+  font-family: Abril Fatface;
+  text-decoration: none;
+  color: bisque;
+  font-size: x-large;
+  font-weight: bold;
 }
 
 .home {
@@ -57,8 +63,11 @@ code {
   flex-direction: column;
   align-items: center;
   height: 100vh;
+}
 
-  background-image: url(../public/assets/images/pasta_prep_background.jpg);
+.whole_page {
+  background: url(../public/assets/images/pasta_prep_background.jpg) no-repeat center 10% fixed;
+  background-size: cover;
 }
 
 .recipes {
@@ -67,7 +76,8 @@ code {
   align-items: center ;
 
   width: 100%;
-  background-image: url(../public/assets/images/food-recipe-background.jpg);
+  background: url(../public/assets/images/food-recipe-background.jpg) no-repeat center 73% fixed;
+  background-size: cover;
 }
 
 .recipe_links {
@@ -96,7 +106,7 @@ code {
   justify-content: space-between;
 
   border-radius: 20px;
-  background-color: rgba(127, 255, 212, 0.333);
+  background-color: antiquewhite;
 }
 
 .view_button {
