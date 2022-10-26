@@ -10,9 +10,8 @@ const NewRecipe = (props) => {
     instructions: ``
   }
   const [formState, setFormState] = useState(initialState)
-
   const [ingredientList, setIngredientList] = useState([{ingredient:''}])
-  const [ingredientTypeList, setIngredientTypeList] = useState([{type:''}])
+
 
   const handleSubmit = async (event) => {
     event.preventDefault()
@@ -22,33 +21,17 @@ const NewRecipe = (props) => {
       let currentIngredient = await axios.get(`http://localhost:3001/ingredients/${event.target[i*3+2].value}/find`)
       arrOfIngredientIds.push(currentIngredient.data[0]._id)
     }
-    // check if ingredients exsits... maybe later
-    // for the ones that do get their id's 
 
-    //  for the ones that don't create new ingredients
-    
-
-    //  save all the ingredients._id's in an array to feed to create new recipe
     setFormState(formState.ingredients = arrOfIngredientIds)
-    console.log(formState)
 
-    //
-    // create new recipe
-    //
-    //console.log(formState)
     let res = await axios.post(`http://localhost:3001/recipes/addNew`, formState)
-    //console.log(res.data)
     setFormState(formState)
     //what should the user see when the recipe is edited
 
   }
 
-  // add another ingredient(and type) meathed triggered by a button press
   const handleAddIngredient = () => {
     setIngredientList([...ingredientList, {ingredient:''}])
-    //conditionally render
-    // counter that keeps track of amount of ingredients 
-    // if counter is less than 
   }
 
   const handleRemoveIngredient = (index) => {
@@ -60,6 +43,8 @@ const NewRecipe = (props) => {
   const handleChange = (event) => {
     setFormState({ ...formState, [event.target.id]: event.target.value })
   }
+
+  
 
   return (
     <div className="new_and_edit">

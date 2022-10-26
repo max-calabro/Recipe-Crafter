@@ -1,15 +1,29 @@
 import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
 import DisplayIngredients from "../components/DisplayIngredients"
+import { useEffect, useState } from "react"
+import axios from "axios"
 
 const RecipeDetails = (props) => {
   let navigate = useNavigate()
+  const [ingredientNames, setingredientNames] = useState([])
+
 
   const editRecipe = () => {
     navigate(`edit`)
   }
 
-  //console.log(props)
+  useEffect(() => {
+    const getIngredietnsById = async () => {
+      let newArr = []
+      for(let i=0;i<props.selectedRecipe.ingredients.length;i++){
+        let currentIngredient = await axios.get(`http://localhost:3001/ingredients/${props.selectedRecipe.ingredients[i]}`)        
+        newArr.push(currentIngredient.data.ingredient.name)
+      }
+      setingredientNames(newArr)
+    }
+    getIngredietnsById()
+  }, [])
 
   return (
     <div className="ingredients">
@@ -19,7 +33,7 @@ const RecipeDetails = (props) => {
         <div className="recipe_page">
           <div className="recipe_description_ingredients">
             <p className="recipe_description">{props.selectedRecipe.description}</p>
-            <DisplayIngredients selectedRecipe={props.selectedRecipe}/>
+            <DisplayIngredients selectedRecipe={props.selectedRecipe} ingredientNames={ingredientNames}/>
           </div>
           <p 
           className="recipe_instructions">
