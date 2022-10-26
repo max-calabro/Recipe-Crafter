@@ -6,30 +6,37 @@ const NewRecipe = (props) => {
   const initialState = {
     name: ``,
     description: ``,
-    ingredients: ``,
+    ingredients: [],
     instructions: ``
   }
   const [formState, setFormState] = useState(initialState)
 
   const [ingredientList, setIngredientList] = useState([{ingredient:''}])
+  const [ingredientTypeList, setIngredientTypeList] = useState([{type:''}])
 
   const handleSubmit = async (event) => {
-    console.log(event)
-    console.log(event.target[2].value)
-    console.log(event.target[3].value)
-    // check if ingredients exsits
-
-    // for the ones that do get their id's
+    event.preventDefault()
+    let arrOfIngredientIds = []
+    for(let i=0;i<ingredientList.length; i++){
+      let res = await axios.post(`http://localhost:3001/ingredients/addNew`, {"name": `${event.target[i*3+2].value}`, "type": `k`})
+      let currentIngredient = await axios.get(`http://localhost:3001/ingredients/${event.target[i*3+2].value}/find`)
+      arrOfIngredientIds.push(currentIngredient.data[0]._id)
+    }
+    // check if ingredients exsits... maybe later
+    // for the ones that do get their id's 
 
     //  for the ones that don't create new ingredients
+    
 
     //  save all the ingredients._id's in an array to feed to create new recipe
+    console.log(arrOfIngredientIds)
+    setFormState(formState.ingredients = arrOfIngredientIds)
+    console.log(formState)
 
     //
     // create new recipe
     //
     //console.log(formState)
-    event.preventDefault()
     let res = await axios.post(`http://localhost:3001/recipes/addNew`, formState)
     //console.log(res.data)
     setFormState(formState)
@@ -87,7 +94,7 @@ const NewRecipe = (props) => {
         {
           ingredientList.map((oneIngredient, index) => (
             <div key={index}>
-              <input onChange={handleChange} placeholder='Ingredient...' value={formState.ingredients} id="ingredients" cole="30" rows="10"></input>
+              <input onChange={handleChange} placeholder='Ingredient...' value={ingredientList.oneIngredient} id="ingredients" cole="30" rows="10"></input>
               <label className="navbar_items" htmlFor="ingredient_type">Ingredient Type</label>
               <select
               // onChange={}
