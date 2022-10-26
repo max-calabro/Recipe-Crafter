@@ -29,7 +29,6 @@ const NewRecipe = (props) => {
     
 
     //  save all the ingredients._id's in an array to feed to create new recipe
-    console.log(arrOfIngredientIds)
     setFormState(formState.ingredients = arrOfIngredientIds)
     console.log(formState)
 
