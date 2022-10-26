@@ -11,7 +11,12 @@ const NewRecipe = (props) => {
   }
   const [formState, setFormState] = useState(initialState)
 
+  const [ingredientList, setIngredientList] = useState([{ingredient:''}])
+
   const handleSubmit = async (event) => {
+    console.log(event)
+    console.log(event.target[2].value)
+    console.log(event.target[3].value)
     // check if ingredients exsits
 
     // for the ones that do get their id's
@@ -30,6 +35,20 @@ const NewRecipe = (props) => {
     setFormState(formState)
     //what should the user see when the recipe is edited
 
+  }
+
+  // add another ingredient(and type) meathed triggered by a button press
+  const handleAddIngredient = () => {
+    setIngredientList([...ingredientList, {ingredient:''}])
+    //conditionally render
+    // counter that keeps track of amount of ingredients 
+    // if counter is less than 
+  }
+
+  const handleRemoveIngredient = (index) => {
+    const list = [...ingredientList]
+    list.splice(index, 1)
+    setIngredientList(list)
   }
 
   const handleChange = (event) => {
@@ -64,28 +83,29 @@ const NewRecipe = (props) => {
           rows="10"
         ></textarea>
 
-        <div>
-          <label className="navbar_items" htmlFor="ingredients">Recipe Ingredients</label>
-          <input
-            onChange={handleChange}
-            placeholder='Ingredient 1'
-            value={formState.ingredients}
-            id="ingredients" 
-            cole="30" 
-            rows="10"
-          ></input>
-          <label className="navbar_items" htmlFor="ingredient_type">Ingredient Type</label>
-          <select
-            // onChange={}
-            // value={}
-            id="ingredientType"
-          >
-            <option>Select Ingredient Type</option>
-            <option value="outage">Protein</option>
-            <option value="billing">Veg</option>
-            <option value="cancel">Carb</option>
-          </select>
-        </div>
+        <label className="navbar_items" htmlFor="ingredients">Recipe Ingredients</label>
+        {
+          ingredientList.map((oneIngredient, index) => (
+            <div key={index}>
+              <input onChange={handleChange} placeholder='Ingredient...' value={formState.ingredients} id="ingredients" cole="30" rows="10"></input>
+              <label className="navbar_items" htmlFor="ingredient_type">Ingredient Type</label>
+              <select
+              // onChange={}
+                // value={}
+                id="ingredientType"
+              >
+                <option>Select Ingredient Type</option>
+                <option value="Protein">Protein</option>
+                <option value="Veg">Veg</option>
+                <option value="Carb">Carb</option>
+              </select>
+              {ingredientList.length > 1 && <button type="button" onClick={() => handleRemoveIngredient(index)} >Remove Ingredient</button>}
+            </div>
+          ))
+        }
+        <button onClick={() => handleAddIngredient()} type="button">Add Ingredient</button>
+        
+
         <label className="navbar_items" htmlFor="instructions">Recipe Instructions</label>
         <textarea 
           onChange={handleChange}
