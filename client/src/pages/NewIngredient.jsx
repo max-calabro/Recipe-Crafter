@@ -24,13 +24,13 @@ const NewIngredient = (props) => {
   }
 
   return (
-    <div>
-      <Link to="/ingredients">Back To All Ingredients</Link>
-      <h2>Edit Ingredient</h2>
-      <form onSubmit={handleSubmit}>
+    <div className="new_and_edit">
+      <h1>Edit Ingredient</h1>
+      <Link className="navbar_items" to="/ingredients">Back To All Ingredients</Link>
+      <form className="form" onSubmit={handleSubmit}>
         <label htmlFor="editRecipe">Edit Recipe</label>
         
-        <label htmlFor="name">Ingredient Name</label>
+        <label className="navbar_items" htmlFor="name">Ingredient Name</label>
         <input 
           onChange={handleChange}
           placeholder='Name...'
@@ -39,7 +39,7 @@ const NewIngredient = (props) => {
           id="name"
         />
 
-        <label htmlFor="type">Ingredient Type</label>
+        <label className="navbar_items" htmlFor="type">Ingredient Type</label>
         <input 
           onChange={handleChange}
           placeholder='Type...'

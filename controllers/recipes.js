@@ -23,7 +23,7 @@ const getAllRecipes = async (req, res) => {
 const getRecipeById = async (req, res) => {
   try {
     const { id } = req.params
-    const recipe = await Recipe.findById(id)
+    const recipe = await Recipe.findById(id).populate('ingredients')
     if (recipe) {
       return res.status(200).json({ recipe })
     }
@@ -57,7 +57,7 @@ const deleteRecipe = async (req, res) => {
   }
 }
 
-const findRecipe = async (req, res) => {
+const findRecipeByName = async (req, res) => {
   try {
     const { name } = req.params
     const found = await Recipe.find({ name: name })
@@ -76,5 +76,5 @@ module.exports = {
   getRecipeById,
   editRecipe,
   deleteRecipe,
-  findRecipe
+  findRecipeByName
 }

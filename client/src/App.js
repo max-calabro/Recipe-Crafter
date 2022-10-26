@@ -3,7 +3,7 @@ import Navbar from './pages/Navbar'
 import Home from './pages/Home'
 
 import { Routes, Route } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import Recipes from './pages/Recipes'
 import Ingredients from './pages/Ingredients'
@@ -24,6 +24,12 @@ const App = () => {
   const [ingredients, setIngredients] = useState([])
   const [selectedIngredient, setSelectedIngredient] = useState(null)
 
+  const [backgroundClass, setBackgroundClass] = useState('home_wrapper')
+
+  const changeBackground = (currentPage) => {
+    setBackgroundClass(currentPage)
+  }
+
   const selectRecipe = (recipe) => {
     //console.log(recipe)
     setSelectedRecipe(recipe)
@@ -35,8 +41,8 @@ const App = () => {
   }
 
   return (
-    <div className="whole_page">
-      <Navbar />
+    <div className={`site_wrapper ${backgroundClass}`}>
+      <Navbar changeBackground={changeBackground} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
@@ -47,6 +53,7 @@ const App = () => {
               setRecipes={setRecipes}
               selectRecipe={selectRecipe}
               selectedRecipe={selectedRecipe}
+              // changeBackground={changeBackground}
             />
           }
         />

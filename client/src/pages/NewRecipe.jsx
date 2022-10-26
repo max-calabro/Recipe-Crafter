@@ -12,6 +12,17 @@ const NewRecipe = (props) => {
   const [formState, setFormState] = useState(initialState)
 
   const handleSubmit = async (event) => {
+    // check if ingredients exsits
+
+    // for the ones that do get their id's
+
+    //  for the ones that don't create new ingredients
+
+    //  save all the ingredients._id's in an array to feed to create new recipe
+
+    //
+    // create new recipe
+    //
     //console.log(formState)
     event.preventDefault()
     let res = await axios.post(`http://localhost:3001/recipes/addNew`, formState)
@@ -26,13 +37,15 @@ const NewRecipe = (props) => {
   }
 
   return (
-    <div>
-      <Link to="/recipes">Back To All Recipes</Link>
-      <h2>Edit Recipe</h2>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="editRecipe">Edit Recipe</label>
+    <div className="new_and_edit">
+      <h1>Edit Recipe</h1>
+      <Link className="navbar_items" to="/recipes">Back To All Recipes</Link>
+      <form 
+        onSubmit={handleSubmit}
+        className="form"
+      >
         
-        <label htmlFor="name">Recipe Name</label>
+        <label className="navbar_items" htmlFor="name">Recipe Name</label>
         <input 
           onChange={handleChange}
           placeholder='Name...'
@@ -41,7 +54,7 @@ const NewRecipe = (props) => {
           id="name"
         />
 
-        <label htmlFor="description">Recipe Description</label>
+        <label className="navbar_items" htmlFor="description">Recipe Description</label>
         <textarea 
           onChange={handleChange}
           placeholder='Description...'
@@ -51,17 +64,29 @@ const NewRecipe = (props) => {
           rows="10"
         ></textarea>
 
-        <label htmlFor="ingredients">Recipe Ingredients</label>
-        <textarea
-          onChange={handleChange}
-          placeholder='Ingredient 1, Ingredient 2, ...'
-          value={formState.ingredients}
-          id="ingredients" 
-          cole="30" 
-          rows="10"
-        ></textarea>
-
-        <label htmlFor="instructions">Recipe Instructions</label>
+        <div>
+          <label className="navbar_items" htmlFor="ingredients">Recipe Ingredients</label>
+          <input
+            onChange={handleChange}
+            placeholder='Ingredient 1'
+            value={formState.ingredients}
+            id="ingredients" 
+            cole="30" 
+            rows="10"
+          ></input>
+          <label className="navbar_items" htmlFor="ingredient_type">Ingredient Type</label>
+          <select
+            // onChange={}
+            // value={}
+            id="ingredientType"
+          >
+            <option>Select Ingredient Type</option>
+            <option value="outage">Protein</option>
+            <option value="billing">Veg</option>
+            <option value="cancel">Carb</option>
+          </select>
+        </div>
+        <label className="navbar_items" htmlFor="instructions">Recipe Instructions</label>
         <textarea 
           onChange={handleChange}
           placeholder='Instructions...'

@@ -60,10 +60,24 @@ const deleteIngredient = async (req, res) => {
   }
 }
 
+const findIngredientByName = async (req, res) => {
+  try {
+    const { name } = req.params
+    const found = await Ingredient.find({ name: name })
+    if (found) {
+      return res.status(200).json(found)
+    }
+    throw new Error('Ingredient not found')
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
+
 module.exports = {
   getAllIngredients,
   createIngredient,
   getIngredientById,
   editIngredient,
-  deleteIngredient
+  deleteIngredient,
+  findIngredientByName
 }

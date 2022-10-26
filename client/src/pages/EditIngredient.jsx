@@ -32,13 +32,13 @@ const EditIngredient = (props) => {
   }
 
   return (
-    <div>
+    <div className="new_and_edit">
+      <h1>Edit Ingredient</h1>
       <Link to="/ingredients">Back To All Ingredients</Link>
-      <h2>Edit Ingredient</h2>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="editIngredient">Edit Ingredient</label>
+        <label className="navbar_items" htmlFor="editIngredient">Edit Ingredient</label>
         
-        <label htmlFor="name">Ingredient Name</label>
+        <label className="navbar_items" htmlFor="name">Ingredient Name</label>
         <input 
           onChange={handleChange}
           value={formState.name} 
@@ -46,7 +46,7 @@ const EditIngredient = (props) => {
           id="name"
         />
 
-        <label htmlFor="type">Ingredient Type</label>
+        <label className="navbar_items" htmlFor="type">Ingredient Type</label>
         <input 
           onChange={handleChange}
           value={formState.type} 

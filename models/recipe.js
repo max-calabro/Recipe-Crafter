@@ -5,7 +5,7 @@ const Recipe = new Schema(
   {
     name: { type: String, required: true },
     description: { type: String, required: true },
-    ingredients: { type: Array, required: true },
+    ingredients: [{ type: Schema.Types.ObjectId, ref: 'Ingredient' }],
     instructions: { type: String, required: true },
     notes: { type: String, required: false }
   },

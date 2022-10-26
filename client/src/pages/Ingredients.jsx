@@ -16,7 +16,6 @@ const Ingredients = (props) => {
   useEffect(() => {
     const getIngredients = async () => {
       const response = await axios.get('http://localhost:3001/ingredients')
-      console.log(response.data)
       props.setIngredients(response.data)
     }
     getIngredients()
@@ -24,14 +23,14 @@ const Ingredients = (props) => {
 
   return (
     <div className="recipes_ingredients">
+      <h1>Ingredients</h1>
       <IngredientNav />
-      <h2>Ingredients</h2>
-      <div className="recipe_grid">
+      <div className="ingredients_grid">
       {
         props.ingredients.map((Ingredient) => (
-          <div className="Ingredient-card"  key={Ingredient._id}>
-            <h3>{Ingredient.name}</h3>
-            <button onClick={() => showIngredient(Ingredient)}>View Ingredient </button>
+          <div className="ingredient_card"  key={Ingredient._id}>
+            <h2>{Ingredient.name}</h2>
+            <button className="view_button" onClick={() => showIngredient(Ingredient)}>View Ingredient </button>
           </div>
         ))
       }

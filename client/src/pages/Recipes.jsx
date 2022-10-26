@@ -21,11 +21,15 @@ const Recipes = (props) => {
     getRecipes()
   }, [])
 
+  // useEffect(() => {
+  //   props.changeBackground("recipes_wrapper")
+  // })
+
   return (
-    <div className="recipes" >
+    <div className="recipes_ingredients" >
       <h1>Recipes</h1>
       <RecipeNav />
-      <div className="recipe_grid">
+      <div className="recipes_grid">
       {
         props.recipes.map((recipe) => (
           <div className="recipe_card"  key={recipe._id}>
