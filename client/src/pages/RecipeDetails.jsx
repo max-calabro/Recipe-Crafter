@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
 import DisplayIngredients from "../components/DisplayIngredients"
-import { useEffect, useState } from "react"
-import axios from "axios"
+import { useEffect } from "react"
+// import axios from "axios"
 
 const RecipeDetails = (props) => {
   let navigate = useNavigate()
-  const [ingredientNames, setingredientNames] = useState([])
+  //const [ingredientNames, setingredientNames] = useState([])
 
 
   const editRecipe = () => {
@@ -14,26 +14,27 @@ const RecipeDetails = (props) => {
   }
 
   useEffect(() => {
-    const getIngredietnsById = async () => {
-      let newArr = []
-      for(let i=0;i<props.selectedRecipe.ingredients.length;i++){
-        let currentIngredient = await axios.get(`http://localhost:3001/ingredients/${props.selectedRecipe.ingredients[i]}`)        
-        newArr.push(currentIngredient.data.ingredient.name)
-      }
-      setingredientNames(newArr)
-    }
-    getIngredietnsById()
+    props.getIngredietnsById(props.selectedRecipe)
+  //   const getIngredietnsById = async () => {
+  //     let newArr = []
+  //     for(let i=0;i<props.selectedRecipe.ingredients.length;i++){
+  //       let currentIngredient = await axios.get(`http://localhost:3001/ingredients/${props.selectedRecipe.ingredients[i]}`)        
+  //       newArr.push(currentIngredient.data.ingredient.name)
+  //     }
+  //     setingredientNames(newArr)
+  //   }
+  //   getIngredietnsById()
   }, [])
 
   return (
-    <div className="ingredients">
-      <Link to="/recipes">Back</Link>
       <div className="details">
         <h1>{props.selectedRecipe.name}</h1>
+        <Link className="navbar_items" to="/recipes">Back To All Recipes</Link>
         <div className="recipe_page">
           <div className="recipe_description_ingredients">
             <p className="recipe_description">{props.selectedRecipe.description}</p>
-            <DisplayIngredients selectedRecipe={props.selectedRecipe} ingredientNames={ingredientNames}/>
+            <DisplayIngredients selectedRecipe={props.selectedRecipe}  ingredientNames={props.ingredientNames}/> 
+            
           </div>
           <p 
           className="recipe_instructions">
@@ -42,7 +43,6 @@ const RecipeDetails = (props) => {
           <button onClick={() => editRecipe()}>Edit Recipe </button>
         </div>
       </div>
-    </div>
   )
 }
 

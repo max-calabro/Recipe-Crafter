@@ -6,7 +6,7 @@ const DisplayIngredients = (props) => {
       {
         props.ingredientNames.map((ingredient, index) => (
           <div key={index}>
-            <h3>{ingredient}</h3> 
+            <h3>- {ingredient.name}</h3> 
           </div>
         ))
       }

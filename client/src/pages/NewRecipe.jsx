@@ -1,8 +1,11 @@
 import { useState } from "react"
 import axios from "axios"
 import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 const NewRecipe = (props) => {
+  const navigate = useNavigate()
+
   const initialState = {
     name: ``,
     description: ``,
@@ -11,13 +14,13 @@ const NewRecipe = (props) => {
   }
   const [formState, setFormState] = useState(initialState)
   const [ingredientList, setIngredientList] = useState([{ingredient:''}])
-
+//props.
 
   const handleSubmit = async (event) => {
     event.preventDefault()
     let arrOfIngredientIds = []
     for(let i=0;i<ingredientList.length; i++){
-      let res = await axios.post(`http://localhost:3001/ingredients/addNew`, {"name": `${event.target[i*3+2].value}`, "type": `k`})
+      let res = await axios.post(`http://localhost:3001/ingredients/addNew`, {"name": `${event.target[i*3+2].value}`, "type": `to be added later`})
       let currentIngredient = await axios.get(`http://localhost:3001/ingredients/${event.target[i*3+2].value}/find`)
       arrOfIngredientIds.push(currentIngredient.data[0]._id)
     }
@@ -25,7 +28,9 @@ const NewRecipe = (props) => {
     setFormState(formState.ingredients = arrOfIngredientIds)
 
     let res = await axios.post(`http://localhost:3001/recipes/addNew`, formState)
-    setFormState(formState)
+    setFormState(initialState)
+    setIngredientList([{ingredient:''}])
+    //navigate(`/recipes/${res.data._id}`)
     //what should the user see when the recipe is edited
 
   }
@@ -44,11 +49,20 @@ const NewRecipe = (props) => {
     setFormState({ ...formState, [event.target.id]: event.target.value })
   }
 
+  const handleChangeIngredient = (event, index) => {
+    let tempState = [...ingredientList]
+    tempState[index].ingredient = event.target.value
+    
+    
+    // tempState.ingredients.push({ingredient: event.target.value})
+    // setFormState(tempState)
+    setIngredientList(tempState)
+  }
   
 
   return (
     <div className="new_and_edit">
-      <h1>Edit Recipe</h1>
+      <h1>New Recipe</h1>
       <Link className="navbar_items" to="/recipes">Back To All Recipes</Link>
       <form 
         onSubmit={handleSubmit}
@@ -78,7 +92,7 @@ const NewRecipe = (props) => {
         {
           ingredientList.map((oneIngredient, index) => (
             <div key={index}>
-              <input onChange={handleChange} placeholder='Ingredient...' value={ingredientList.oneIngredient} id="ingredients" cole="30" rows="10"></input>
+              <input onChange={(event) => handleChangeIngredient(event, index)} placeholder='Ingredient...' value={oneIngredient.ingredient} id="ingredients" cole="30" rows="10"></input>
               <label className="navbar_items" htmlFor="ingredient_type">Ingredient Type</label>
               <select
               // onChange={}

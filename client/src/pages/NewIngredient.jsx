@@ -25,11 +25,9 @@ const NewIngredient = (props) => {
 
   return (
     <div className="new_and_edit">
-      <h1>Edit Ingredient</h1>
+      <h1>New Ingredient</h1>
       <Link className="navbar_items" to="/ingredients">Back To All Ingredients</Link>
-      <form className="form" onSubmit={handleSubmit}>
-        <label htmlFor="editRecipe">Edit Recipe</label>
-        
+      <form className="form" onSubmit={handleSubmit}>        
         <label className="navbar_items" htmlFor="name">Ingredient Name</label>
         <input 
           onChange={handleChange}
@@ -40,15 +38,18 @@ const NewIngredient = (props) => {
         />
 
         <label className="navbar_items" htmlFor="type">Ingredient Type</label>
-        <input 
-          onChange={handleChange}
-          placeholder='Type...'
-          value={formState.type} 
-          type="text" 
-          id="type"
-        />
+        <select
+              // onChange={}
+                // value={}
+          id="ingredientType"
+        >
+          <option>Select Ingredient Type</option>
+          <option value="Protein">Protein</option>
+          <option value="Veg">Veg</option>
+          <option value="Carb">Carb</option>
+        </select>
 
-          <button type="submit">Submit</button>
+        <button type="submit">Submit</button>
       </form>
     </div>
   )

@@ -149,7 +149,7 @@ code {
   justify-content: space-between;
 
   border-radius: 20px;
-  background-color: antiquewhite;
+  background: rgb(246, 229, 208, .9);
 }
 
 .ingredient_card {
@@ -159,7 +159,7 @@ code {
   justify-content: space-between;
 
   border-radius: 20px;
-  background-color: antiquewhite;
+  background: rgb(246, 229, 208, .9);
 }
 
 .view_button {
@@ -204,17 +204,17 @@ code {
   width: 50%;
   padding: 2%;
   margin: 0;
-  background-color: rgb(244, 211, 193);
+  background: rgb(244, 211, 193, .9);
   border-right: 1px solid grey;
-  border-radius: 20px;
+  border-radius: 20px 0 0 20px;
 }
 
 .recipe_ingredients {
   width: 50%;
   padding: 2%;
-  background-color: rgb(244, 211, 193);
+  background: rgb(244, 211, 193, .9);
   border-left: 1px solid grey;
-  border-radius: 20px;
+  border-radius: 0 20px 20px 0; 
 }
 
 .recipe_instructions {
@@ -223,7 +223,7 @@ code {
 
   aspect-ratio: 2/1;
   width: 100%;
-  background-color: lightgoldenrodyellow;
+  background: rgb(242, 242, 201, .9);
   margin: 0;
   padding-top: 2%;
   border-radius: 20px;
