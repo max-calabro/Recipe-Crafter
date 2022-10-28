@@ -63,65 +63,77 @@ const NewRecipe = (props) => {
   return (
     <div className="new_and_edit">
       <h1>New Recipe</h1>
-      <Link className="navbar_items" to="/recipes">Back To All Recipes</Link>
-      <form 
-        onSubmit={handleSubmit}
-        className="form"
-      >
-        
-        <label className="navbar_items" htmlFor="name">Recipe Name</label>
-        <input 
-          onChange={handleChange}
-          placeholder='Name...'
-          value={formState.name} 
-          type="text" 
-          id="name"
-        />
+      <div className="background">
+        <Link className="navbar_items" to="/recipes">Back To All Recipes</Link>
+        <form 
+          onSubmit={handleSubmit}
+          className="form"
+        >
+          
+          <label className="navbar_items" htmlFor="name">Recipe Name</label>
+          <input 
+            onChange={handleChange}
+            placeholder='Name...'
+            value={formState.name} 
+            type="text" 
+            id="name"
+          />
 
-        <label className="navbar_items" htmlFor="description">Recipe Description</label>
-        <textarea 
-          onChange={handleChange}
-          placeholder='Description...'
-          value={formState.description} 
-          id="description" 
-          cole="30" 
-          rows="10"
-        ></textarea>
+          <label className="navbar_items" htmlFor="description">Recipe Description</label>
+          <textarea 
+            onChange={handleChange}
+            placeholder='Description...'
+            value={formState.description} 
+            id="description" 
+            cole="30" 
+            rows="10"
+          ></textarea>
 
-        <label className="navbar_items" htmlFor="ingredients">Recipe Ingredients</label>
-        {
-          ingredientList.map((oneIngredient, index) => (
-            <div key={index}>
-              <input onChange={(event) => handleChangeIngredient(event, index)} placeholder='Ingredient...' value={oneIngredient.ingredient} id="ingredients" cole="30" rows="10"></input>
-              <label className="navbar_items" htmlFor="ingredient_type">Ingredient Type</label>
-              <select
-                onChange={handleChange}
-                id="type"
-              >
-                <option>Select Ingredient Type</option>
-                <option value="Protein">Protein</option>
-                <option value="Veg">Veg</option>
-                <option value="Carb">Carb</option>
-              </select>
-              {ingredientList.length > 1 && <button type="button" onClick={() => handleRemoveIngredient(index)} >Remove Ingredient</button>}
-            </div>
-          ))
-        }
-        <button onClick={() => handleAddIngredient()} type="button">Add Ingredient</button>
-        
+          <div className="inline_flex">
+            <label className="navbar_items" htmlFor="ingredients">Recipe Ingredients</label>
+            <label className="navbar_items" htmlFor="ingredient_type">Ingredient Type</label>
+          </div>
+          
+          {
+            ingredientList.map((oneIngredient, index) => (
+              <div className="ing_flex" key={index}>
+                <input onChange={(event) => handleChangeIngredient(event, index)} placeholder='Ingredient...' value={oneIngredient.ingredient} id="ingredients" cole="30" rows="10"></input>
+                <select
+                  onChange={handleChange}
+                  id="type"
+                >
+                  <option>Select Ingredient Type</option>
+                  <option value="Grain">Grain</option>
+                  <option value="Vegetable">Vegetable</option>
+                  <option value="Fruit">Fruit</option>
+                  <option value="Dairy">Dairy</option>
+                  <option value="Protein">Protein</option>
+                  <option value="Spice">Spice</option>
+                  <option value="Legumes">Legumes</option>
+                  <option value="Oil">Oil</option>
+                  <option value="Beverage">Beverage</option>
+                  <option value="Other">Other</option>
+                </select>
+                {ingredientList.length > 1 && <button type="button" onClick={() => handleRemoveIngredient(index)} >Remove Ingredient</button>}
+              </div>
+            ))
+          }
+          <button onClick={() => handleAddIngredient()} type="button">Add Ingredient</button>
+          
 
-        <label className="navbar_items" htmlFor="instructions">Recipe Instructions</label>
-        <textarea 
-          onChange={handleChange}
-          placeholder='Instructions...'
-          value={formState.instructions}
-          id="instructions" 
-          cole="30" 
-          rows="10"
-        ></textarea>
+          <label className="navbar_items" htmlFor="instructions">Recipe Instructions</label>
+          <textarea 
+            onChange={handleChange}
+            placeholder='Instructions...'
+            value={formState.instructions}
+            id="instructions" 
+            cole="30" 
+            rows="10"
+          ></textarea>
 
-        <button type="submit">Submit</button>
-      </form>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
     </div>
   )
 }

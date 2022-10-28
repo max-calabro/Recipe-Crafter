@@ -5,16 +5,6 @@ import { useNavigate } from "react-router-dom"
 
 const EditRecipe = (props) => {
   const navigate = useNavigate()
-  const arrayOfNames = []
-  
-  // useEffect(() => {
-  //   const mapNames = () => {
-  //     props.ingredientNames.map((ingredient, index) => {
-  //       arrayOfNames.push(ingredient[index].name)
-  //     })
-  //   }
-  //   mapNames()
-  // }, [])
 
   const initialState = {
     name: `${props.selectedRecipe.name}`,
@@ -41,28 +31,36 @@ const EditRecipe = (props) => {
 
   }
 
-  const handleChange = (event) => {
-    setFormState({ ...formState, [event.target.id]: event.target.value })
+  const handleChange = (event, index) => {
+    console.log(event.target)
+    console.log(formState.ingredients)
+    // console.log(formState.description)
+    // console.log(formState.ingredients)
+    // console.log(formState.ingredients[0].name)
+    if(event.target.id === "ingredient_name") {
+      setFormState({...formState, [formState.ingredients[index].name]: event.target.value})
+    } else if (event.target.id === "ingredient_type") {
+      setFormState({...formState, [formState.ingredients[index].type]: event.target.value})
+    } else {
+      setFormState({ ...formState, [event.target.id]: event.target.value })
+    }
   }
 
   const deleteRecipe = async () => {
     let toDelete = await axios.delete(`http://localhost:3001/recipes/${props.selectedRecipe._id}/delete`)
-    console.log("deleted")
-    //navigate(-2)
+    navigate('/recipes')
     //what should the user see when the recipe is deleted
     //screen with two buttons: "new Recipe" "All recipes" ?
   }
 
   const handleRemoveIngredient = (index) => {
-  //   const list = [...ingredientList]
-  //   list.splice(index, 1)
-  //   setIngredientList(list)
-    //const list = [...ingredientList]
-    const list = [...props.ingredientNames]
+    //const list = [...props.ingredientNames]
+    const list = [...formState.ingredients]
     list.splice(index, 1)
     // let toDelete = await axois.put(`http://localhost:3001/recipes/${the-specific-id}/removeIngredientFromRecipe`)
     //setIngredientList(list)
-    props.setIngredientNames(list)
+    //props.setIngredientNames(list)
+    setFormState(list)
   }
 
   const handleAddIngredient = () => {
@@ -70,61 +68,70 @@ const EditRecipe = (props) => {
     //setIngredientList([...ingredientList, {ingredient:''}])
     props.setIngredientNames([...props.ingredientNames, ""])
   }
-
+  
   return (
     <div className="new_and_edit">
       <h1>Edit Recipe</h1>
-      <Link className="navbar_items" to="/recipes">Back To All Recipes</Link>
-      <form onSubmit={handleSubmit} className="form">        
-        <label className="navbar_items" htmlFor="name">Recipe Name</label>
-        <input 
-          onChange={handleChange}
-          value={formState.name} 
-          type="text" 
-          id="name"
-        />
+      <div className="background">
+        <Link className="navbar_items" to="/recipes">Back To All Recipes</Link>
 
-        <label className="navbar_items" htmlFor="description">Recipe Description</label>
-        <textarea 
-          onChange={handleChange}
-          value={formState.description} 
-          id="description" 
-          cole="30" 
-          rows="10"
-        ></textarea>
+        <form onSubmit={handleSubmit} className="form">        
+          <label className="navbar_items" htmlFor="name">Recipe Name</label>
+          <input 
+            onChange={handleChange}
+            value={formState.name} 
+            type="text" 
+            id="name"
+          />
 
-        <label className="navbar_items" htmlFor="ingredients">Recipe Ingredients</label>
-        {formState.ingredients.map((name, index) => 
-        //props.ingredientNames.map ingredientList
-          <div key={index}>
-            <div>
-              <input
-                onChange={handleChange}
-                value={name.name}
-                id="ingredients" 
-              ></input>
-              {props.ingredientNames.length > 1 && <button type="button" onClick={() => handleRemoveIngredient(index)} >Remove Ingredient</button>}
-            {/* props.ingredientNames.length  ingredientList*/}
+          <label className="navbar_items" htmlFor="description">Recipe Description</label>
+          <textarea 
+            onChange={handleChange}
+            value={formState.description} 
+            id="description" 
+            cole="30" 
+            rows="10"
+          ></textarea>
+
+          <label className="navbar_items" htmlFor="ingredients">Recipe Ingredients</label>
+          {formState.ingredients.map((ingredient, index) => 
+            <div className="ing_flex" key={index}>
+              <div>
+                <input
+                  onChange={(event) => handleChange(event, index)}
+                  value={ingredient.name}
+                  id="ingredient_name" 
+                ></input>
+                {formState.ingredients.length > 1 && <button type="button" onClick={() => handleRemoveIngredient(index)} >Remove Ingredient</button>}
+              </div>
+              {/* To be added later */}
+              {/* <select
+                  onChange={handleChange}
+                  id="ingredient_type"
+                >
+                  <option>Select Ingredient Type</option>
+                  <option value="Protein">Protein</option>
+                  <option value="Veg">Veg</option>
+                  <option value="Carb">Carb</option>
+                </select> */}
             </div>
-          </div>
-        )}
-        <button onClick={() => handleAddIngredient()} type="button">Add Ingredient</button>
-        
+          )}
+          <button onClick={() => handleAddIngredient()} type="button">Add Ingredient</button>
+          
 
-        <label className="navbar_items" htmlFor="instructions">Recipe Instructions</label>
-        <textarea 
-          onChange={handleChange}
-          value={formState.instructions}
-          id="instructions" 
-          cole="30" 
-          rows="10"
-        ></textarea>
+          <label className="navbar_items" htmlFor="instructions">Recipe Instructions</label>
+          <textarea 
+            onChange={handleChange}
+            value={formState.instructions}
+            id="instructions" 
+            cole="30" 
+            rows="10"
+          ></textarea>
 
-        <button type="submit">Submit</button>
-      </form>
-      <button onClick={() => deleteRecipe()}>Delete Recipe</button>
-      
-
+          <button type="submit">Submit</button>
+        </form>
+        <button onClick={() => deleteRecipe()}>Delete Recipe</button>
+      </div>
     </div>
   )
 }

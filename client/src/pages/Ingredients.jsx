@@ -24,16 +24,18 @@ const Ingredients = (props) => {
   return (
     <div className="recipes_ingredients">
       <h1>Ingredients</h1>
-      <IngredientNav />
-      <div className="ingredients_grid">
-      {
-        props.ingredients.map((Ingredient) => (
-          <div className="ingredient_card"  key={Ingredient._id}>
-            <h2>{Ingredient.name}</h2>
-            <button className="view_button" onClick={() => showIngredient(Ingredient)}>View Ingredient </button>
-          </div>
-        ))
-      }
+      <div className="background">
+        <IngredientNav />
+        <div className="ingredients_grid">
+        {
+          props.ingredients.map((Ingredient) => (
+            <div className="ingredient_card"  key={Ingredient._id}>
+              <h2>{Ingredient.name}</h2>
+              <button className="view_button" onClick={() => showIngredient(Ingredient)}>View Ingredient </button>
+            </div>
+          ))
+        }
+        </div>
       </div>
     </div>
   )

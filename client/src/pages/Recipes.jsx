@@ -8,7 +8,6 @@ const Recipes = (props) => {
   let navigate = useNavigate()
 
   const showRecipe = (recipe) => {
-    console.log( `this is the recipe: ${recipe}`)
     props.selectRecipe(recipe)
     navigate(`${recipe._id}`)
   }
@@ -29,16 +28,18 @@ const Recipes = (props) => {
   return (
     <div className="recipes_ingredients" >
       <h1>Recipes</h1>
-      <RecipeNav />
-      <div className="recipes_grid">
-      {
-        props.recipes.map((recipe) => (
-          <div className="recipe_card"  key={recipe._id}>
-            <h2>{recipe.name}</h2>
-            <button className="view_button" onClick={() => showRecipe(recipe)}>View Recipe </button>
-          </div>
-        ))
-      }
+      <div className="background">
+        <RecipeNav />
+        <div className="recipes_grid">
+        {
+          props.recipes.map((recipe) => (
+            <div className="recipe_card"  key={recipe._id}>
+              <h2>{recipe.name}</h2>
+              <button className="view_button" onClick={() => showRecipe(recipe)}>View Recipe </button>
+            </div>
+          ))
+        }
+      </div>
     </div>
     </div>
   )
