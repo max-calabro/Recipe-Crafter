@@ -1,10 +1,10 @@
-# Recipe-Crafter
+![title](client/public/assets/images/TitleScreenShot.png)
 
 ## Date: 19/10/2022
 
 ### By: Max Calabro
 
-[GitHub](https://github.com/max-calabro) | [CodePen](https://codepen.io/Max-Calabro)
+[GitHub](https://github.com/max-calabro)
 
 ---
 
@@ -36,15 +36,13 @@
 
 ## **_Screenshots_**
 
-#### **Image 1 Header**
+#### **Home Page**
 
-![Add Links](https://i.imgur.com/ox1PvbS.jpeg)
+![home](client/public/assets/images/HomeScreenShot.png)
 
-#### **Image 2 Header**
+#### **New Recipe Form**
 
-![Add Links](https://pbs.twimg.com/media/E_NxLe3WYAIm-Qj?format=jpg&name=medium)
-
----
+## ![newRecipe](client/public/assets/images/NewRecipeScreenShot.png)
 
 ## **_Updates_**
 
