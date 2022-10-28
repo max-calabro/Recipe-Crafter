@@ -28,6 +28,8 @@
 [ERD](images/Recipe-Crafter-ERD.jpg) |
 [Components_Hierarchy_Diagram](images/Recipe-Crafter-Components-Hierarchy-Diagram.jpg)
 
+#### Look though all of the recipes or ceate a new one yourself!
+
 ---
 
 ## **_Screenshots_**
@@ -42,17 +44,13 @@
 
 ## **_Updates_**
 
-- [ ] Future Update 1
-- [ ] Future Update 2
-- [x] Completed Update
-- [x] ~~Strikethrough~~
+- [ ] Improved search function
+- [ ] About me page linking to other socials
+- [ ] Better UI when submitting a form
+- [ ] Sorting of the recipes and ingredients
 
 ---
 
 ### **_Credits_**
 
-#### Images: [Our Bulldogs](https://imgur.com/user/OurBulldogs)
-
-#### Tutorial Used: [Source](https://images.google.com)
-
-#### Inspiration: [My Little Gnocchi](https://www.instagram.com/my_little_gnocchi/?hl=en)
+#### Me
