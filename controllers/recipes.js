@@ -12,7 +12,7 @@ const createRecipe = async (req, res) => {
 
 const getAllRecipes = async (req, res) => {
   try {
-    const all = await Recipe.find({})
+    const all = await Recipe.find({}).populate('ingredients')
     //return res.send(`http.cat/${res.status(200)}`)
     return res.status(200).json(all)
   } catch (error) {

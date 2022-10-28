@@ -4,7 +4,7 @@ const DisplayIngredients = (props) => {
     <div className="recipe_ingredients">
       <div>Ingredients:</div>
       {
-        props.ingredientNames.map((ingredient, index) => (
+        props.selectedRecipe.ingredients.map((ingredient, index) => (
           <div key={index}>
             <h3>- {ingredient.name}</h3> 
           </div>

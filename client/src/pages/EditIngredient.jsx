@@ -19,7 +19,7 @@ const EditIngredient = (props) => {
     let res = await axios.put(`http://localhost:3001/ingredients/${props.selectedIngredient._id}/edit`, formState)
     //console.log(res.data)
     setFormState(formState)
-    //navigate("/ingredients")
+    navigate(`/ingredients/${props.selectedIngredient._id}`)
     //what should the user see when the recipe is edited
 
   }
@@ -40,7 +40,7 @@ const EditIngredient = (props) => {
   return (
     <div className="new_and_edit">
       <h1>Edit Ingredient</h1>
-      <Link to="/ingredients">Back To All Ingredients</Link>
+      <Link className="navbar_items" to="/ingredients">Back To All Ingredients</Link>
       <form onSubmit={handleSubmit}>        
         <label className="navbar_items" htmlFor="name">Ingredient Name</label>
         <input 

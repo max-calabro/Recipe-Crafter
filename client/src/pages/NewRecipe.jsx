@@ -95,9 +95,8 @@ const NewRecipe = (props) => {
               <input onChange={(event) => handleChangeIngredient(event, index)} placeholder='Ingredient...' value={oneIngredient.ingredient} id="ingredients" cole="30" rows="10"></input>
               <label className="navbar_items" htmlFor="ingredient_type">Ingredient Type</label>
               <select
-              // onChange={}
-                // value={}
-                id="ingredientType"
+                onChange={handleChange}
+                id="type"
               >
                 <option>Select Ingredient Type</option>
                 <option value="Protein">Protein</option>

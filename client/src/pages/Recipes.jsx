@@ -8,6 +8,7 @@ const Recipes = (props) => {
   let navigate = useNavigate()
 
   const showRecipe = (recipe) => {
+    console.log( `this is the recipe: ${recipe}`)
     props.selectRecipe(recipe)
     navigate(`${recipe._id}`)
   }

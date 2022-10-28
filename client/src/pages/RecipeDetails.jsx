@@ -6,25 +6,18 @@ import { useEffect } from "react"
 
 const RecipeDetails = (props) => {
   let navigate = useNavigate()
-  //const [ingredientNames, setingredientNames] = useState([])
 
 
   const editRecipe = () => {
     navigate(`edit`)
   }
 
+// hsould get rid of this eventually
   useEffect(() => {
     props.getIngredietnsById(props.selectedRecipe)
-  //   const getIngredietnsById = async () => {
-  //     let newArr = []
-  //     for(let i=0;i<props.selectedRecipe.ingredients.length;i++){
-  //       let currentIngredient = await axios.get(`http://localhost:3001/ingredients/${props.selectedRecipe.ingredients[i]}`)        
-  //       newArr.push(currentIngredient.data.ingredient.name)
-  //     }
-  //     setingredientNames(newArr)
-  //   }
-  //   getIngredietnsById()
+
   }, [])
+
 
   return (
       <div className="details">
@@ -33,7 +26,7 @@ const RecipeDetails = (props) => {
         <div className="recipe_page">
           <div className="recipe_description_ingredients">
             <p className="recipe_description">{props.selectedRecipe.description}</p>
-            <DisplayIngredients selectedRecipe={props.selectedRecipe}  ingredientNames={props.ingredientNames}/> 
+            <DisplayIngredients selectedRecipe={props.selectedRecipe}  /> 
             
           </div>
           <p 

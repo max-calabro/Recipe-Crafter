@@ -42,7 +42,6 @@ const App = () => {
   }
 
   const selectRecipe = (recipe) => {
-    //console.log(recipe)
     setSelectedRecipe(recipe)
   }
 
@@ -55,7 +54,7 @@ const App = () => {
     <div className={`site_wrapper ${backgroundClass}`}>
       <Navbar changeBackground={changeBackground} />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home selectRecipe={selectRecipe} />} />
         <Route
           path="/recipes/*"
           element={

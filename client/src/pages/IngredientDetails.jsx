@@ -6,12 +6,12 @@ const IngredientDetails = (props) => {
   let navigate = useNavigate()
 
   const editIngredient = () => {
-    navigate(`edit`)
+    navigate(`/ingredients/${props.selectedIngredient._id}/edit`)
   }
 
   const deleteIngredient = async () => {
     let toDelete = await axios.delete(`http://localhost:3001/ingredients/${props.selectedIngredient._id}/delete`)
-    navigate(`http://localhost:3001/ingredients`)
+    navigate(`/ingredients`)
   }
 
   //console.log(props)
@@ -19,10 +19,10 @@ const IngredientDetails = (props) => {
   return (
     <div className="details">
       <Link className="navbar_items" to="/ingredients">Back to all ingredients</Link>
-      <div className="navbar_items">name: {props.selectedIngredient.name}</div>
+      <h1>{props.selectedIngredient.name}</h1>
       <div className="navbar_items">type: {props.selectedIngredient.type}</div>
       <button onClick={() => editIngredient()}>Edit Ingredient </button>
-      <button onClick={() => deleteIngredient()}>delete Ingredient </button>
+      {/* <button onClick={() => deleteIngredient()}>delete Ingredient </button> */}
     </div>
   )
 }

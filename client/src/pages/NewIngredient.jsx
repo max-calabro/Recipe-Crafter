@@ -1,22 +1,23 @@
 import { useState } from "react"
 import axios from "axios"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 const NewIngredient = (props) => {
+  const navigate = useNavigate()
   const initialState = {
     name: ``,
-    type: ``
+    type: `k`
   }
   const [formState, setFormState] = useState(initialState)
 
   const handleSubmit = async (event) => {
-    //console.log(formState)
+    console.log(formState)
     event.preventDefault()
     let res = await axios.post(`http://localhost:3001/ingredients/addNew`, formState)
     //console.log(res.data)
-    setFormState(formState)
+    //setFormState(formState)
     //what should the user see when the recipe is edited
-
+    navigate(`/ingredients`)
   }
 
   const handleChange = (event) => {
@@ -39,9 +40,8 @@ const NewIngredient = (props) => {
 
         <label className="navbar_items" htmlFor="type">Ingredient Type</label>
         <select
-              // onChange={}
-                // value={}
-          id="ingredientType"
+          onChange={handleChange}
+          id="type"
         >
           <option>Select Ingredient Type</option>
           <option value="Protein">Protein</option>

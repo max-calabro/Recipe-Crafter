@@ -1,10 +1,20 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import axios from "axios"
 import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
 
 const EditRecipe = (props) => {
   const navigate = useNavigate()
+  const arrayOfNames = []
+  
+  // useEffect(() => {
+  //   const mapNames = () => {
+  //     props.ingredientNames.map((ingredient, index) => {
+  //       arrayOfNames.push(ingredient[index].name)
+  //     })
+  //   }
+  //   mapNames()
+  // }, [])
 
   const initialState = {
     name: `${props.selectedRecipe.name}`,
@@ -15,6 +25,7 @@ const EditRecipe = (props) => {
   //props.ingredientNames
   const [formState, setFormState] = useState(initialState)
   //const [ingredientList, setIngredientList] = useState([...props.ingredientNames])
+  //console.log(formState.ingredients)
 
   const handleSubmit = async (event) => {
     //console.log(formState)
@@ -55,7 +66,7 @@ const EditRecipe = (props) => {
   }
 
   const handleAddIngredient = () => {
-    console.log(props.selectedRecipe.ingredients)
+    //console.log(props.selectedRecipe.ingredients)
     //setIngredientList([...ingredientList, {ingredient:''}])
     props.setIngredientNames([...props.ingredientNames, ""])
   }
@@ -83,13 +94,13 @@ const EditRecipe = (props) => {
         ></textarea>
 
         <label className="navbar_items" htmlFor="ingredients">Recipe Ingredients</label>
-        {props.ingredientNames.map((oneIngredient, index) => 
+        {formState.ingredients.map((name, index) => 
         //props.ingredientNames.map ingredientList
           <div key={index}>
             <div>
               <input
                 onChange={handleChange}
-                value={oneIngredient}
+                value={name.name}
                 id="ingredients" 
               ></input>
               {props.ingredientNames.length > 1 && <button type="button" onClick={() => handleRemoveIngredient(index)} >Remove Ingredient</button>}
