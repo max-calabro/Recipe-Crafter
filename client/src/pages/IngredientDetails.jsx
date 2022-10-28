@@ -18,8 +18,8 @@ const IngredientDetails = (props) => {
 
   return (
     <div className="details">
-      <Link className="back" to="/ingredients">Back to all ingredients</Link>
       <h1>{props.selectedIngredient.name}</h1>
+      <Link className="back" to="/ingredients">Back to all ingredients</Link>
       <div className="navbar_items">type: {props.selectedIngredient.type}</div>
       <button onClick={() => editIngredient()}>Edit Ingredient </button>
       {/* <button onClick={() => deleteIngredient()}>delete Ingredient </button> */}

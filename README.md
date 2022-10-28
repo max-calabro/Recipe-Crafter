@@ -16,12 +16,10 @@
 
 ## **_Technologies Used_**
 
-- Javescript
-- HTML
-- CSS
-- React
-- MongoDB
-- GitHub
+<pre>
+ Javescript           HTML                    CSS
+ React                MongoDB                 GitHub
+</pre>
 
 ## **_Getting Started_**
 
