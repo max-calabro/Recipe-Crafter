@@ -4,7 +4,7 @@
 
 ### By: Max Calabro
 
-[Deployed Site](https://dashboard.heroku.com/apps/max-recipe-crafter) | [GitHub](https://github.com/max-calabro) | [LinkedIn](https://www.linkedin.com/in/max-calabro/)
+[Deployed Site](https://max-recipe-crafter.herokuapp.com/) | [GitHub](https://github.com/max-calabro) | [LinkedIn](https://www.linkedin.com/in/max-calabro/)
 
 ---
 
@@ -23,7 +23,7 @@
 
 ## **_Getting Started_**
 
-[Deployed Site](https://dashboard.heroku.com/apps/max-recipe-crafter) |
+[Deployed Site](https://max-recipe-crafter.herokuapp.com/) |
 [Trello](https://trello.com/b/NDdOQKbE/recipe-crafter) |
 [ERD](images/Recipe-Crafter-ERD.jpg) |
 [Components Hierarchy Diagram](images/Recipe-Crafter-Components-Hierarchy-Diagram.jpg)
