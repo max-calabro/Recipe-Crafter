@@ -21,8 +21,6 @@
  React                MongoDB                 GitHub
 </pre>
 
-?retryWrites=true&w=majority
-
 ## **_Getting Started_**
 
 [Deployed_Site] |
