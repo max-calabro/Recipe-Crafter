@@ -73,7 +73,7 @@ const EditRecipe = (props) => {
     <div className="new_and_edit">
       <h1>Edit Recipe</h1>
       <div className="background">
-        <Link className="navbar_items" to="/recipes">Back To All Recipes</Link>
+        <Link className="back" to="/recipes">Back To All Recipes</Link>
 
         <form onSubmit={handleSubmit} className="form">        
           <label className="navbar_items" htmlFor="name">Recipe Name</label>

@@ -40,7 +40,7 @@ const EditIngredient = (props) => {
   return (
     <div className="new_and_edit">
       <h1>Edit Ingredient</h1>
-      <Link className="navbar_items" to="/ingredients">Back To All Ingredients</Link>
+      <Link className="back" to="/ingredients">Back To All Ingredients</Link>
       <form onSubmit={handleSubmit}>        
         <label className="navbar_items" htmlFor="name">Ingredient Name</label>
         <input 

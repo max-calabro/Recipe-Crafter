@@ -4,7 +4,7 @@
 
 ### By: Max Calabro
 
-[GitHub](https://github.com/max-calabro)
+[Deployed Site] | [GitHub](https://github.com/max-calabro) | [LinkedIn](https://www.linkedin.com/in/max-calabro/)
 
 ---
 
@@ -17,13 +17,11 @@
 ## **_Technologies Used_**
 
 - Javescript
-  - React
-
-1. Mongo
-2. Item 2
-   - Sub-item
-
----
+- HTML
+- CSS
+- React
+- MongoDB
+- GitHub
 
 ## **_Getting Started_**
 
