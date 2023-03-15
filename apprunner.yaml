@@ -7,3 +7,5 @@ build:
 run:
   runtime-version: 18.11.0
   command: npm run start
+  network:
+    port: 3001
